@@ -1,0 +1,8 @@
+FROM fedora:27
+
+ENV geth_pkg geth-alltools-linux-amd64-1.8.6-12683fec
+ENV geth_home /root/
+ENV bootnode_name eth-bootnode
+
+RUN dnf install -y wget; dnf clean all
+RUN wget -nv https://gethstore.blob.core.windows.net/builds/${geth_pkg}.tar.gz && tar -xvzf ${geth_pkg}.tar.gz && rm -f ${geth_pkg}.tar.gz && mv ${geth_pkg} ${geth_home}/geth

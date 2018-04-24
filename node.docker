@@ -1,0 +1,13 @@
+FROM eth-base
+
+RUN mkdir -p ${geth_home}/chain_data
+
+COPY start_node.sh /bin/start_node
+COPY genesis.json ${geth_home}/genesis.json
+COPY keystore ${geth_home}/keystore
+COPY bootnode_id ${geth_home}/bootnode_id
+COPY password ${geth_home}/password
+COPY package_delivery_contract.js ${geth_home}/package_delivery_contract.js
+COPY package_delivery.js ${geth_home}/package_delivery.js
+
+CMD ["/bin/start_node"]

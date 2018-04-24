@@ -1,0 +1,7 @@
+FROM eth-base
+
+# geth/bootnode -genkey boot.key
+COPY boot.key ${geth_home}/boot.key
+COPY start_bootnode.sh /bin/start_bootnode
+
+CMD ["/bin/start_bootnode"]
